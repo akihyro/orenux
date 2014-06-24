@@ -12,6 +12,12 @@
 
 [Vagrant](http://www.vagrantup.com) をダウンロード/インストール。
 
+### vagrant-omnibus インストール
+
+```sh
+$ vagrant plugin install vagrant-omnibus
+```
+
 ### チェックアウト
 
 本リポジトリをチェックアウト。
