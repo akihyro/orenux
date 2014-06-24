@@ -7,6 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = 'Vagrantfile.chef'
     chef.run_list = [
+      'epel',
     ]
   end
 
