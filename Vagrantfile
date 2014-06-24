@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
     chef.run_list = [
       'epel',
       'rpmforge',
+      'bash-completion',
       'lv',
       'sl',
     ]
