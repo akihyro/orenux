@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'rpmforge',
       'bash-completion',
       'lv',
+      'git',
       'sl',
     ]
   end
