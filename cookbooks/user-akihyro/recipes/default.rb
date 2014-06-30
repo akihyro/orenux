@@ -8,3 +8,9 @@ end
 template '/etc/sudoers.d/akihyro' do
   source 'sudoers.erb'
 end
+
+template '/home/akihyro/.gitconfig' do
+  owner 'akihyro'
+  group 'akihyro'
+  source 'gitconfig.erb'
+end
