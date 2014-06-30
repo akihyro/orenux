@@ -14,6 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'hist-settings',
       'epel',
       'rpmforge',
+      'remi',
       'bash-completion',
       'lv',
       'git',
