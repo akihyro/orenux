@@ -4,3 +4,7 @@ user 'akihyro' do
   comment 'akihyro'
   supports :manage_home => true
 end
+
+template '/etc/sudoers.d/akihyro' do
+  source 'sudoers.erb'
+end
