@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
     chef.run_list = [
       'timezone',
       'locale',
+      'hist-settings',
       'epel',
       'rpmforge',
       'bash-completion',
