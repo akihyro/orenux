@@ -14,3 +14,9 @@ template '/home/akihyro/.gitconfig' do
   group 'akihyro'
   source 'gitconfig.erb'
 end
+
+link '/home/akihyro/sublime-text-settings' do
+  owner 'akihyro'
+  group 'akihyro'
+  to '/win/home/AppData/Roaming/Sublime Text 3'
+end
