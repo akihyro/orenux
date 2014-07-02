@@ -15,6 +15,12 @@ template '/home/akihyro/.gitconfig' do
   source 'gitconfig.erb'
 end
 
+link '/home/akihyro/orenux' do
+  owner 'akihyro'
+  group 'akihyro'
+  to '/vagrant'
+end
+
 link '/home/akihyro/sublime-text-settings' do
   owner 'akihyro'
   group 'akihyro'
