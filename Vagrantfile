@@ -5,6 +5,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
 
   config.vm.hostname = 'orenux'
 
+  config.vm.synced_folder 'C:/', '/win/c'
+  config.vm.synced_folder ENV['HOME'], '/win/home'
+
   config.omnibus.chef_version = :latest
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = 'Vagrantfile.chef'
