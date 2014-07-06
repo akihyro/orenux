@@ -1,6 +1,12 @@
 
 package 'yum-plugin-fastestmirror'
 
+bash 'yum_update' do
+  code <<-EOC
+    yum update -y
+  EOC
+end
+
 remote_file '/tmp/epel-release-6-8.noarch.rpm' do
   source 'http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm'
   checksum 'e5ed9ecf22d0c4279e92075a64c757ad2b38049bcf5c16c4f2b75d5f6860dc0d'
