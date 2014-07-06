@@ -1,6 +1,6 @@
 
-package 'git' do
-  options '--enablerepo=rpmforge-extras'
+package 'git18' do
+  options '--enablerepo=ius'
 end
 
 remote_file '/etc/profile.d/git-prompt.sh' do
