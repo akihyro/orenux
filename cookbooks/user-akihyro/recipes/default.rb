@@ -27,6 +27,12 @@ template '/home/akihyro/.ssh/config' do
   source 'sshconfig.erb'
 end
 
+file '/home/akihyro/.ssh/known_hosts' do
+  owner 'akihyro'
+  group 'akihyro'
+  content IO.read('/win/home/.ssh/known_hosts')
+end
+
 file "/home/akihyro/.ssh/github_rsa" do
   owner 'akihyro'
   group 'akihyro'
