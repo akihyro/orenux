@@ -15,6 +15,31 @@ template '/home/akihyro/.gitconfig' do
   source 'gitconfig.erb'
 end
 
+directory '/home/akihyro/.ssh' do
+  owner 'akihyro'
+  group 'akihyro'
+  mode '0700'
+end
+
+template '/home/akihyro/.ssh/config' do
+  owner 'akihyro'
+  group 'akihyro'
+  source 'sshconfig.erb'
+end
+
+file "/home/akihyro/.ssh/github_rsa" do
+  owner 'akihyro'
+  group 'akihyro'
+  mode '0600'
+  content IO.read('/win/home/.ssh/github_rsa')
+end
+
+file "/home/akihyro/.ssh/github_rsa.pub" do
+  owner 'akihyro'
+  group 'akihyro'
+  content IO.read('/win/home/.ssh/github_rsa.pub')
+end
+
 link '/home/akihyro/orenux' do
   owner 'akihyro'
   group 'akihyro'
