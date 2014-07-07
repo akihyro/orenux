@@ -15,7 +15,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
     chef.custom_config_path = 'Vagrantfile.chef'
     chef.run_list = [
       'locale',
-      'hist-settings',
       'yum',
       'gcc',
       'openssl-devel',
@@ -28,6 +27,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'hub',
       'peco',
       'sl',
+      'hist-settings',
+      'ps1-settings',
       'user-akihyro',
     ]
   end
