@@ -1,2 +1,2 @@
 
-package 'gcc'
+yum_package 'gcc'

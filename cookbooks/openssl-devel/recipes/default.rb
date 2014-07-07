@@ -1,2 +1,2 @@
 
-package 'openssl-devel'
+yum_package 'openssl-devel'

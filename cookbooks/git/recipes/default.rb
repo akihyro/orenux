@@ -1,5 +1,5 @@
 
-package 'git18' do
+yum_package 'git18' do
   options '--enablerepo=ius'
 end
 

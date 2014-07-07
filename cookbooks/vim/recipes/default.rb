@@ -1,2 +1,2 @@
 
-package 'vim-enhanced'
+yum_package 'vim-enhanced'

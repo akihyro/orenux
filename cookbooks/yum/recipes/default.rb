@@ -1,5 +1,5 @@
 
-package 'yum-plugin-fastestmirror'
+yum_package 'yum-plugin-fastestmirror'
 
 bash 'yum_update' do
   code <<-EOC
@@ -12,8 +12,7 @@ remote_file '/tmp/epel-release-6-8.noarch.rpm' do
   checksum 'e5ed9ecf22d0c4279e92075a64c757ad2b38049bcf5c16c4f2b75d5f6860dc0d'
 end
 
-package 'epel' do
-  provider Chef::Provider::Package::Rpm
+rpm_package 'epel' do
   source '/tmp/epel-release-6-8.noarch.rpm'
 end
 
@@ -31,8 +30,7 @@ remote_file '/tmp/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm' do
   checksum '1f98252908e397f70a216964ed836e93ba4e80550eac343586895a993a41afb7'
 end
 
-package 'rpmforge' do
-  provider Chef::Provider::Package::Rpm
+rpm_package 'rpmforge' do
   source '/tmp/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm'
 end
 
@@ -50,8 +48,7 @@ remote_file '/tmp/ius-release-1.0-11.ius.centos6.noarch.rpm' do
   checksum 'ce752a9694a2f2096baab71b377514d6b1f72c01ababef255b4371bd56b803bd'
 end
 
-package 'ius' do
-  provider Chef::Provider::Package::Rpm
+rpm_package 'ius' do
   source '/tmp/ius-release-1.0-11.ius.centos6.noarch.rpm'
 end
 
@@ -69,8 +66,7 @@ remote_file '/tmp/remi-release-6.rpm' do
   checksum 'caefe3e778f185535d80f21499dc50c5c388040e0966c96b539d8d05c907dc63'
 end
 
-package 'remi' do
-  provider Chef::Provider::Package::Rpm
+rpm_package 'remi' do
   source '/tmp/remi-release-6.rpm'
 end
 

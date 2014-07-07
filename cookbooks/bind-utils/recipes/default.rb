@@ -1,2 +1,2 @@
 
-package 'bind-utils'
+yum_package 'bind-utils'
