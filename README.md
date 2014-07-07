@@ -18,6 +18,12 @@
 $ vagrant plugin install vagrant-omnibus
 ```
 
+### vagrant-vbguest インストール
+
+```sh
+$ vagrant plugin install vagrant-vbguest
+```
+
 ### チェックアウト
 
 本リポジトリをチェックアウト。
