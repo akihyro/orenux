@@ -5,6 +5,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
 
   config.vm.hostname = 'orenux'
 
+  config.vm.network :private_network, ip: '192.168.33.10'
+
   config.vm.synced_folder 'C:/', '/win/c'
   config.vm.synced_folder ENV['HOME'], '/win/home'
 
