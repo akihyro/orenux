@@ -10,8 +10,12 @@ template '/usr/local/bin/hub' do
   mode '0755'
 end
 
-template '/etc/profile.d/hub.alias.sh' do
+template '/opt/hub/hub.alias.sh' do
   mode '0755'
+end
+
+link '/etc/profile.d/hub.alias.sh' do
+  to '/opt/hub/hub.alias.sh'
 end
 
 remote_file '/opt/hub/hub.bash_completion.sh' do
