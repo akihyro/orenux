@@ -3,6 +3,6 @@ yum_package 'git18' do
   options '--enablerepo=ius'
 end
 
-remote_file '/etc/profile.d/git-prompt.sh' do
-  source 'https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh'
+link '/etc/profile.d/git-prompt.sh' do
+  to '/usr/share/git-core/contrib/completion/git-prompt.sh'
 end
