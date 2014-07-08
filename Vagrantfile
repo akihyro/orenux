@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'peco',
       'sl',
       'hist-settings',
-      'ps1-settings',
+      'ps-settings',
       'user-akihyro',
     ]
   end
