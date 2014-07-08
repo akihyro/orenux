@@ -1,2 +1,2 @@
 
-template '/etc/profile.d/hist-settings.sh'
+template '/etc/profile.d/history.sh'
