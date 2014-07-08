@@ -12,15 +12,10 @@
 
 [Vagrant](http://www.vagrantup.com) をダウンロード/インストール。
 
-### vagrant-omnibus インストール
+### Vagrant プラグイン インストール
 
 ```sh
 $ vagrant plugin install vagrant-omnibus
-```
-
-### vagrant-vbguest インストール
-
-```sh
 $ vagrant plugin install vagrant-vbguest
 ```
 
