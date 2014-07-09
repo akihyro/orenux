@@ -15,6 +15,7 @@
 ### Vagrant プラグイン インストール
 
 ```sh
+$ vagrant plugin install vagrant-cachier
 $ vagrant plugin install vagrant-omnibus
 $ vagrant plugin install vagrant-pristine
 $ vagrant plugin install sahara
