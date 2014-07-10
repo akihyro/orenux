@@ -28,6 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'ruby',
       'hub',
       'peco',
+      'java',
       'sl',
       'hist-settings',
       'ps-settings',
