@@ -31,6 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'peco',
       'java',
       'maven',
+      'glassfish',
       'sl',
       'hist-settings',
       'ps-settings',
