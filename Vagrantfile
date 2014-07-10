@@ -21,6 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'gcc',
       'openssl-devel',
       'bash-completion',
+      'unzip',
       'bind-utils',
       'vim',
       'lv',
