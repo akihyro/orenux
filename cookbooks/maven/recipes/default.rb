@@ -15,3 +15,5 @@ bash 'maven_extract' do
     mv /opt/apache-maven-3.2.2 /opt/maven-3.2.2
   EOC
 end
+
+template '/etc/profile.d/maven.sh'
