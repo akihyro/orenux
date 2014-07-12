@@ -1,0 +1,2 @@
+
+yum_package 'tree'

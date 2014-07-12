@@ -25,6 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'bind-utils',
       'vim',
       'lv',
+      'tree',
       'git',
       'ruby',
       'hub',
