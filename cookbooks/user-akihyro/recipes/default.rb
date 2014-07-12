@@ -46,6 +46,15 @@ file "/home/akihyro/.ssh/github_rsa.pub" do
   content IO.read('/win/home/.ssh/github_rsa.pub')
 end
 
+bash 'user-akihyro_samba' do
+  not_if <<-EOC
+    pdbedit -L | egrep -q 'akihyro'
+  EOC
+  code <<-EOC
+    echo '\n\n' | pdbedit -a -t akihyro
+  EOC
+end
+
 link '/home/akihyro/orenux' do
   owner 'akihyro'
   group 'akihyro'
