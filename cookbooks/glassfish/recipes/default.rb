@@ -23,3 +23,5 @@ bash 'glassfish_extract' do
     chown -R glassfish:glassfish /opt/glassfish-4.0
   EOC
 end
+
+template '/etc/profile.d/glassfish.sh'
