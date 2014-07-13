@@ -1,0 +1,84 @@
+#!/bin/bash
+#
+# chkconfig: - 85 15
+# description: Starts and stops the GlassFish.
+#
+
+. /etc/init.d/functions
+. /etc/profile.d/glassfish.sh
+
+service_name=glassfish
+
+asadmin=$GLASSFISH_HOME/bin/asadmin
+domain=domain1
+
+lock_file=/var/lock/subsys/$service_name
+daemon_pid_file=/var/run/$service_name.pid
+domain_pid_file=$GLASSFISH_HOME/glassfish/domains/$domain/config/pid
+
+start() {
+    echo -n "Starting GlassFish ($domain): "
+    daemon --user=$GLASSFISH_USER --pidfile=$daemon_pid_file $asadmin start-domain $domain
+    start_result=$?
+    if [ $start_result = 0 ]; then
+        touch $lock_file
+        cp $domain_pid_file $daemon_pid_file
+        echo_success
+    else
+        echo_failure
+    fi
+    echo
+    return $start_result
+}
+
+stop() {
+    echo -n "Shutting down GlassFish ($domain): "
+    $asadmin stop-domain $domain
+    stop_result=$?
+    if [ $stop_result = 0 ]; then
+        rm -f $lock_file $daemon_pid_file
+        echo_success
+    else
+        echo_failure
+    fi
+    echo
+    return $stop_result
+}
+
+restart() {
+    echo -n "Restarting GlassFish ($domain): "
+    $asadmin restart-domain $domain
+    restart_result=$?
+    if [ $restart_result = 0 ]; then
+        echo_success
+    else
+        echo_failure
+    fi
+    echo
+    return $restart_result
+}
+
+rh_status() {
+    status -p $daemon_pid_file $service_name
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        rh_status
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: $service_name {start|stop|restart|status}"
+        exit 1
+        ;;
+esac
+
+exit $?

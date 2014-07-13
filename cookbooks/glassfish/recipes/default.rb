@@ -25,3 +25,20 @@ bash 'glassfish_extract' do
 end
 
 template '/etc/profile.d/glassfish.sh'
+
+template '/etc/init.d/glassfish' do
+  mode '0755'
+end
+
+bash 'glassfish_chkconfig' do
+  not_if <<-EOC
+    chkconfig --list glassfish
+  EOC
+  code <<-EOC
+    chkconfig --add glassfish
+  EOC
+end
+
+service 'glassfish' do
+  action [:enable, :start]
+end
