@@ -12,14 +12,19 @@
 
 [Vagrant](http://www.vagrantup.com) をダウンロード/インストール。
 
-### Vagrant プラグイン インストール
+### Vagrant プラグイン インストール (必須)
+
+```sh
+$ vagrant plugin install vagrant-omnibus
+$ vagrant plugin install vagrant-vbguest
+```
+
+### Vagrant プラグイン インストール (任意)
 
 ```sh
 $ vagrant plugin install vagrant-cachier
-$ vagrant plugin install vagrant-omnibus
 $ vagrant plugin install vagrant-pristine
 $ vagrant plugin install sahara
-$ vagrant plugin install vagrant-vbguest
 ```
 
 ### チェックアウト
