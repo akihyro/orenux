@@ -66,3 +66,11 @@ link '/home/akihyro/sublime-text-settings' do
   group 'akihyro'
   to '/win/home/AppData/Roaming/Sublime Text 3'
 end
+
+git '/home/akihyro/cloud-print-console' do
+  user 'akihyro'
+  group 'akihyro'
+  repository 'git@github.com:akihyro/cloud-print-console.git'
+  enable_checkout false
+  action :checkout
+end
