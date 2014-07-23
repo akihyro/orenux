@@ -2,6 +2,7 @@
 	name = akihyro
 	email = akihyro@users.noreply.github.com
 [core]
+	attributesfile = ~/.gitattributes
 	autocrlf = false
 [push]
 	default = current
@@ -27,3 +28,5 @@
 	sh = show --pretty=fuller --abbrev-commit --decorate --date=iso
 [interactive]
 	singlekey = true
+[diff "properties"]
+	textconv = /usr/java/default/bin/native2ascii -reverse

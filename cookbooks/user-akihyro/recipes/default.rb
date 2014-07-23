@@ -15,6 +15,12 @@ template '/home/akihyro/.gitconfig' do
   source 'gitconfig.erb'
 end
 
+template '/home/akihyro/.gitattributes' do
+  owner 'akihyro'
+  group 'akihyro'
+  source 'gitattributes.erb'
+end
+
 directory '/home/akihyro/.ssh' do
   owner 'akihyro'
   group 'akihyro'
