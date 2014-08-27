@@ -17,3 +17,12 @@ bash 'nodejs_extract' do
 end
 
 template '/etc/profile.d/nodejs.sh'
+
+bash 'npm_install_grunt' do
+  not_if <<-EOC
+    npm ls --global grunt-cli | grep grunt-cli
+  EOC
+  code <<-EOC
+    npm install --global grunt-cli
+  EOC
+end
