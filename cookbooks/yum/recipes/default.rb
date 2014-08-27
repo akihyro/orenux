@@ -45,13 +45,13 @@ bash 'yum_rpmforge_disable' do
   EOC
 end
 
-remote_file '/vagrant/.orenux-cache/yum/ius-release-1.0-11.ius.centos6.noarch.rpm' do
-  source 'http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-11.ius.centos6.noarch.rpm'
+remote_file '/vagrant/.orenux-cache/yum/ius-release-1.0-13.ius.centos6.noarch.rpm' do
+  source 'http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-13.ius.centos6.noarch.rpm'
   checksum '1b96aa2fa6b27dc7d02e23da69ef7c6da8da4476ec7d1c355df4361c5394fcb6'
 end
 
 rpm_package 'ius' do
-  source '/vagrant/.orenux-cache/yum/ius-release-1.0-11.ius.centos6.noarch.rpm'
+  source '/vagrant/.orenux-cache/yum/ius-release-1.0-13.ius.centos6.noarch.rpm'
 end
 
 bash 'yum_ius_disable' do
