@@ -34,6 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'java',
       'maven',
       'glassfish',
+      'nodejs',
       'sl',
       'hist-settings',
       'ps-settings',
