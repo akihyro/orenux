@@ -26,3 +26,12 @@ bash 'npm_install_grunt' do
     npm install --global grunt-cli
   EOC
 end
+
+bash 'npm_install_bower' do
+  not_if <<-EOC
+    npm ls --global bower | grep bower
+  EOC
+  code <<-EOC
+    npm install --global bower
+  EOC
+end
