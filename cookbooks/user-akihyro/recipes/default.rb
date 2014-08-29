@@ -73,6 +73,14 @@ link '/home/akihyro/sublime-text-settings' do
   to '/win/home/AppData/Roaming/Sublime Text 3'
 end
 
+git '/home/akihyro/rakugaki-box.net' do
+  user 'akihyro'
+  group 'akihyro'
+  repository 'git@github.com:akihyro/rakugaki-box.net.git'
+  enable_checkout false
+  action :checkout
+end
+
 git '/home/akihyro/cloud-print-console' do
   user 'akihyro'
   group 'akihyro'
