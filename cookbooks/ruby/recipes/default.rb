@@ -36,3 +36,14 @@ bash 'ruby_global_2.1.2' do
     rbenv global 2.1.2
   EOC
 end
+
+bash 'ruby_install_bundler' do
+  not_if <<-EOC
+    . /etc/profile.d/rbenv.sh
+    gem list bundler | egrep "^bundler"
+  EOC
+  code <<-EOC
+    . /etc/profile.d/rbenv.sh
+    gem install bundler
+  EOC
+end
