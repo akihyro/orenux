@@ -80,3 +80,11 @@ git '/home/akihyro/cloud-print-console' do
   enable_checkout false
   action :checkout
 end
+
+git '/home/akihyro/try-rest-with-jaxrs' do
+  user 'akihyro'
+  group 'akihyro'
+  repository 'git@github.com:akihyro/try-rest-with-jaxrs.git'
+  enable_checkout false
+  action :checkout
+end
