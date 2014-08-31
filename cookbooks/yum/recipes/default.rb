@@ -47,7 +47,7 @@ end
 
 remote_file '/vagrant/.orenux-cache/yum/ius-release-1.0-13.ius.centos6.noarch.rpm' do
   source 'http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-13.ius.centos6.noarch.rpm'
-  checksum '1b96aa2fa6b27dc7d02e23da69ef7c6da8da4476ec7d1c355df4361c5394fcb6'
+  checksum '8d2f0ef2b89b71c9e179ba9c033abded439e0a62edbd3b86a3c8eb77ae49875f'
 end
 
 rpm_package 'ius' do
