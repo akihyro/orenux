@@ -1,19 +1,26 @@
+#=======================================================================================================================
+# GlassFish
+#=======================================================================================================================
 
+# キャッシュディレクトリ
 directory '/vagrant/.orenux-cache/glassfish'
 
-remote_file '/vagrant/.orenux-cache/glassfish/glassfish-4.0.1-b10.zip' do
-  source 'http://dlc.sun.com.edgesuite.net/glassfish/4.0.1/promoted/glassfish-4.0.1-b10.zip'
-  checksum '11f9440739cd96aad9f0032152718682afdc69c4ce817210f8e74a106ae9a20d'
+# ダウンロード
+remote_file '/vagrant/.orenux-cache/glassfish/glassfish-4.1.zip' do
+  source 'http://dlc.sun.com.edgesuite.net/glassfish/4.1/release/glassfish-4.1.zip'
+  checksum '3edc5fc72b8be241a53eae83c22f274479d70e15bdfba7ba2302da5260f23e9d'
 end
 
+# 展開
 bash 'glassfish_extract' do
   not_if <<-EOC
-    test -d /opt/glassfish-4.0.1-b10
+    test -d /opt/glassfish-4.1
   EOC
   code <<-EOC
-    unzip -q -d /opt /vagrant/.orenux-cache/glassfish/glassfish-4.0.1-b10.zip
-    mv /opt/glassfish4 /opt/glassfish-4.0.1-b10
+    unzip -q -d /opt /vagrant/.orenux-cache/glassfish/glassfish-4.1.zip
+    mv /opt/glassfish4 /opt/glassfish-4.1
   EOC
 end
 
+# 環境設定
 template '/etc/profile.d/glassfish.sh'
