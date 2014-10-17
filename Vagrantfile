@@ -42,7 +42,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'samba',
       'git',
       'ruby',
-      'hub',
       'peco',
       'java',
       'maven',
