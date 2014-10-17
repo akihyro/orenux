@@ -29,20 +29,23 @@ template '/etc/profile.d/nodejs.sh'
 # grunt-cli インストール
 bash 'npm_install_grunt' do
   not_if <<-EOC
+    . /etc/profile.d/nodejs.sh
     npm ls --global grunt-cli | grep -q grunt-cli
   EOC
   code <<-EOC
+    . /etc/profile.d/nodejs.sh
     npm install --global grunt-cli
   EOC
 end
 
-
 # bower インストール
 bash 'npm_install_bower' do
   not_if <<-EOC
+    . /etc/profile.d/nodejs.sh
     npm ls --global bower | grep -q bower
   EOC
   code <<-EOC
+    . /etc/profile.d/nodejs.sh
     npm install --global bower
   EOC
 end
