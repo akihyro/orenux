@@ -66,6 +66,17 @@ $ git clone https://github.com/akihyro/orenux.git
 ```
 
 
+リポジトリ管理外 ファイル準備
+-----------------------------
+
+リポジトリ管理外のファイルを準備する。
+
+* `$HOME/.netrc`
+* `$HOME/.ssh/known_hosts
+* `$HOME/.ssh/github_rsa
+* `$HOME/.ssh/github_rsa.pub
+
+
 仮想環境 構築/起動
 ------------------
 
