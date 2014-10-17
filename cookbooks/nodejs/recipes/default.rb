@@ -1,35 +1,46 @@
+#=======================================================================================================================
+# Node.js
+#=======================================================================================================================
 
+# キャッシュディレクトリ
 directory '/vagrant/.orenux-cache/nodejs'
 
-remote_file '/vagrant/.orenux-cache/nodejs/node-v0.10.31-linux-x64.tar.gz' do
-  source 'http://nodejs.org/dist/v0.10.31/node-v0.10.31-linux-x64.tar.gz'
-  checksum '493aa5d4fac0f34df01b07c7d276f1da8d5139df82374c599ab932e740d52147'
+# ダウンロード
+remote_file '/vagrant/.orenux-cache/nodejs/node-v0.10.32-linux-x64.tar.gz' do
+  source 'http://nodejs.org/dist/v0.10.32/node-v0.10.32-linux-x64.tar.gz'
+  checksum '621777798ed9523a4ad1c4d934f94b7bc765871d769a014a53a4f1f7bcb5d5a7'
 end
 
+# 展開
 bash 'nodejs_extract' do
   not_if <<-EOC
-    test -d /opt/nodejs-0.10.31
+    test -d /opt/nodejs-0.10.32
   EOC
   code <<-EOC
-    tar xfz /vagrant/.orenux-cache/nodejs/node-v0.10.31-linux-x64.tar.gz -C /opt
-    mv /opt/node-v0.10.31-linux-x64 /opt/nodejs-0.10.31
+    tar xfz /vagrant/.orenux-cache/nodejs/node-v0.10.32-linux-x64.tar.gz -C /opt
+    mv /opt/node-v0.10.32-linux-x64 /opt/nodejs-0.10.32
   EOC
 end
 
+# 環境設定
 template '/etc/profile.d/nodejs.sh'
 
+
+# grunt-cli インストール
 bash 'npm_install_grunt' do
   not_if <<-EOC
-    npm ls --global grunt-cli | grep grunt-cli
+    npm ls --global grunt-cli | grep -q grunt-cli
   EOC
   code <<-EOC
     npm install --global grunt-cli
   EOC
 end
 
+
+# bower インストール
 bash 'npm_install_bower' do
   not_if <<-EOC
-    npm ls --global bower | grep bower
+    npm ls --global bower | grep -q bower
   EOC
   code <<-EOC
     npm install --global bower
