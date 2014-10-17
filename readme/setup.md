@@ -5,19 +5,19 @@
 Virtual Box インストール
 ------------------------
 
-[Virtual Box](https://www.virtualbox.org) をダウンロード/インストールする。
+[Virtual Box](https://www.virtualbox.org) をダウンロード/インストールする。  
 
 
 Vagrant インストール
 --------------------
 
-[Vagrant](http://www.vagrantup.com) をダウンロード/インストールする。
+[Vagrant](http://www.vagrantup.com) をダウンロード/インストールする。  
 
 
 Vagrant プラグイン インストール (必須)
 --------------------------------------
 
-Vagrantプラグインをインストールする。
+Vagrantプラグインをインストールする。  
 
 ```
 $ vagrant plugin install vagrant-omnibus
@@ -29,7 +29,7 @@ $ vagrant plugin install vagrant-proxyconf
 Vagrant プラグイン インストール (任意)
 --------------------------------------
 
-Vagrantプラグインをインストールする。
+Vagrantプラグインをインストールする。  
 
 ```
 $ vagrant plugin install vagrant-cachier
@@ -42,7 +42,7 @@ $ vagrant plugin install vagrant-vbox-snapshot
 リポジトリクローン
 ------------------
 
-本リポジトリをクローンする。
+本リポジトリをクローンする。  
 
 ```
 $ git clone https://github.com/akihyro/orenux.git
@@ -52,7 +52,7 @@ $ git clone https://github.com/akihyro/orenux.git
 ゲストOS 構築/起動
 ------------------
 
-ゲストOSを構築/起動する。
+ゲストOSを構築/起動する。  
 
 ```
 $ vagrant up
