@@ -66,7 +66,7 @@ end
 # リポジトリ ius ダウンロード
 remote_file '/vagrant/.orenux-cache/yum/ius-release-1.0-13.ius.centos6.noarch.rpm' do
   source 'http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-13.ius.centos6.noarch.rpm'
-  checksum '8d2f0ef2b89b71c9e179ba9c033abded439e0a62edbd3b86a3c8eb77ae49875f'
+  checksum '0aef3838bb8358e4a4b020f8f07c6a40821e13fa380cc59dbf874e33a274f21b'
 end
 
 # リポジトリ ius インストール
