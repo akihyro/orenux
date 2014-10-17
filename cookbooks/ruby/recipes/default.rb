@@ -2,6 +2,9 @@
 # Ruby
 #=======================================================================================================================
 
+# キャッシュディレクトリ
+directory '/vagrant/.orenux-cache/ruby'
+
 # rbenv ダウンロード
 git '/opt/rbenv-0.4.0' do
   repository 'https://github.com/sstephenson/rbenv.git'
