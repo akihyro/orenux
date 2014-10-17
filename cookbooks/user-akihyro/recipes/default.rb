@@ -1,5 +1,5 @@
 #=======================================================================================================================
-# ユーザ: atsoba
+# ユーザ: akihyro
 #=======================================================================================================================
 
 # ユーザ 作成
@@ -55,10 +55,10 @@ template '/home/akihyro/.ssh/config' do
 end
 
 # SSH 既知ホスト 設定
-file '/home/akihyro/.ssh/known_hosts' do
+template '/home/akihyro/.ssh/known_hosts' do
   owner 'akihyro'
   group 'akihyro'
-  content IO.read('/win/home/.ssh/known_hosts')
+  mode '0644'
 end
 
 # SSH GitHub 秘密鍵 作成
@@ -73,6 +73,7 @@ end
 file "/home/akihyro/.ssh/github_rsa.pub" do
   owner 'akihyro'
   group 'akihyro'
+  mode '0644'
   content IO.read('/win/home/.ssh/github_rsa.pub')
 end
 

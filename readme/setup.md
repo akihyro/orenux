@@ -1,5 +1,5 @@
-俺用 Linux 仮想環境 - 環境構築
-==============================
+環境構築手順 - ゲストOS 環境構築手順
+====================================
 
 
 Virtual Box インストール
@@ -19,14 +19,6 @@ Vagrant プラグイン インストール (必須)
 
 Vagrantプラグインをインストールする。
 
-* vagrant-omnibus
-    * ゲストOSに Chef をインストール, 実行してくれる。
-* vagrant-vbguest
-    * Guest Additions を自動でアップデートしてくれる。
-    * このバージョンが古くなると、共有フォルダの利用が出来ない等の問題に苛まれることがある。これを防ぐ。
-* vagrant-proxyconf
-    * ゲストOSにプロキシを設定してくれる。
-
 ```
 $ vagrant plugin install vagrant-omnibus
 $ vagrant plugin install vagrant-vbguest
@@ -38,15 +30,6 @@ Vagrant プラグイン インストール (任意)
 --------------------------------------
 
 Vagrantプラグインをインストールする。
-
-* vagrant-cachier
-    * ゲストOS内のyumパッケージ等をホストOS側にキャッシュしてくれる。
-* vagrant-pristine
-    * `vagrant pristine` で `vagrant destroy && vagrant up` をサクっと実行。
-* sahara
-    * sandboxモードをONにすれば、ゲストOSの状態をロールバック/コミット可能になる。
-* vagrant-vbox-snapshot
-    * ゲストOSのスナップショットを取得/復元できる。
 
 ```
 $ vagrant plugin install vagrant-cachier
@@ -66,21 +49,10 @@ $ git clone https://github.com/akihyro/orenux.git
 ```
 
 
-リポジトリ管理外 ファイル準備
------------------------------
-
-リポジトリ管理外のファイルを準備する。
-
-* `$HOME/.netrc`
-* `$HOME/.ssh/known_hosts
-* `$HOME/.ssh/github_rsa
-* `$HOME/.ssh/github_rsa.pub
-
-
-仮想環境 構築/起動
+ゲストOS 構築/起動
 ------------------
 
-仮想環境を構築/起動する。
+ゲストOSを構築/起動する。
 
 ```
 $ vagrant up
