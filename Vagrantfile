@@ -48,6 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'glassfish',
       'nodejs',
       'redis',
+      'vagrant',
       'sl',
       'hist-settings',
       'ps-settings',
