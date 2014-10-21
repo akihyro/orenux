@@ -129,3 +129,12 @@ git '/home/akihyro/try-rest-with-jaxrs' do
   repository 'https://github.com/akihyro/try-rest-with-jaxrs.git'
   enable_checkout false
 end
+
+# try-vagrant-aws ローカルリポジトリ 作成
+git '/home/akihyro/try-vagrant-aws' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/try-vagrant-aws.git'
+  enable_checkout false
+end
