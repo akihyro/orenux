@@ -41,7 +41,7 @@ bash 'ruby_install_bundler' do
   not_if <<-EOC
     . /etc/profile.d/rbenv.sh
     rbenv shell 2.1.3
-    gem list bundler | egrep "^bundler"
+    gem list bundler | egrep -q '^bundler'
   EOC
   code <<-EOC
     . /etc/profile.d/rbenv.sh
