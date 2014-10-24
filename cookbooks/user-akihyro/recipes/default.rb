@@ -121,12 +121,12 @@ git '/home/akihyro/cloud-print-console' do
   enable_checkout false
 end
 
-# try-rest-with-jaxrs ローカルリポジトリ 作成
-git '/home/akihyro/try-rest-with-jaxrs' do
+# try-jaxrs ローカルリポジトリ 作成
+git '/home/akihyro/try-jaxrs' do
   action :checkout
   user 'akihyro'
   group 'akihyro'
-  repository 'https://github.com/akihyro/try-rest-with-jaxrs.git'
+  repository 'https://github.com/akihyro/try-jaxrs.git'
   enable_checkout false
 end
 
