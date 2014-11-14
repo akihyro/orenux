@@ -12,7 +12,7 @@ remote_file '/vagrant/.orenux-cache/redis/redis-2.8.6.tar.gz' do
 end
 
 # 展開
-bash 'redis_extract' do
+bash 'redis::extract' do
   not_if <<-EOC
     test -d /opt/redis-2.8.6
   EOC
@@ -21,8 +21,8 @@ bash 'redis_extract' do
   EOC
 end
 
-# インストール
-bash 'redis_install' do
+# ビルド/インストール
+bash 'redis::install' do
   not_if <<-EOC
     test -d /opt/redis-2.8.6/bin
   EOC
@@ -33,31 +33,16 @@ bash 'redis_install' do
   EOC
 end
 
-# サービス起動スクリプト 修正
-# [utils/install_server.sh]
-#   => そのままインストールすると chkconfig が上手く動かないので一部書き換える
-#   => 参考: install.shがそのままでは動かないので修正する - kwyの日記
-#            http://d.hatena.ne.jp/kwy/20130925/1380120686
-bash 'redis_fix_service_script' do
-  only_if <<-EOC
-    egrep -q '!`which chkconfig`' /opt/redis-2.8.6/utils/install_server.sh
-  EOC
-  code <<-EOC
-    sed -i -e 's/\!\`which chkconfig\`/\! \`which chkconfig\`/g' /opt/redis-2.8.6/utils/install_server.sh
-  EOC
+# 環境設定 (即時)
+ruby_block 'redis::env' do
+  not_if do
+    ENV['REDIS_HOME'] == '/opt/redis-2.8.6'
+  end
+  block do
+    ENV['REDIS_HOME'] = '/opt/redis-2.8.6'
+    ENV['PATH'] = "#{ENV['REDIS_HOME']}/bin:#{ENV['PATH']}"
+  end
 end
 
-# 環境変数設定
+# 環境設定 (次回以降)
 template '/etc/profile.d/redis.sh'
-
-# サービス起動
-bash 'redis_service' do
-  not_if <<-EOC
-    test -f /etc/init.d/redis_6379
-  EOC
-  code <<-EOC
-    . /etc/profile.d/redis.sh
-    cd $REDIS_HOME/utils
-    ./install_server.sh
-  EOC
-end

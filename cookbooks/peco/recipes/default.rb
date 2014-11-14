@@ -12,9 +12,9 @@ remote_file '/vagrant/.orenux-cache/peco/peco_linux_amd64-0.2.10.tar.gz' do
 end
 
 # 展開
-bash 'peco_extract' do
+bash 'peco::extract' do
   not_if <<-EOC
-    test -f /opt/peco-0.2.10/peco
+    test -d /opt/peco-0.2.10
   EOC
   code <<-EOC
     tar xfz /vagrant/.orenux-cache/peco/peco_linux_amd64-0.2.10.tar.gz -C /opt
@@ -22,7 +22,7 @@ bash 'peco_extract' do
   EOC
 end
 
-# パス
+# 環境設定
 link '/usr/local/bin/peco' do
   to '/opt/peco-0.2.10/peco'
 end

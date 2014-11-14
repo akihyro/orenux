@@ -5,7 +5,7 @@
 # インストール
 yum_package 'samba'
 
-# サービス起動
+# サービス
 service 'smb' do
   action [:enable, :start]
 end

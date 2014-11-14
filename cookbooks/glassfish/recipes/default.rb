@@ -12,7 +12,7 @@ remote_file '/vagrant/.orenux-cache/glassfish/glassfish-4.1.zip' do
 end
 
 # 展開
-bash 'glassfish_extract' do
+bash 'glassfish::extract' do
   not_if <<-EOC
     test -d /opt/glassfish-4.1
   EOC
@@ -22,5 +22,16 @@ bash 'glassfish_extract' do
   EOC
 end
 
-# 環境設定
+# 環境設定 (即時)
+ruby_block 'glassfish::env' do
+  not_if do
+    ENV['GLASSFISH_HOME'] == '/opt/glassfish-4.1'
+  end
+  block do
+    ENV['GLASSFISH_HOME'] = '/opt/glassfish-4.1'
+    ENV['PATH'] = "#{ENV['GLASSFISH_HOME']}/bin:#{ENV['PATH']}"
+  end
+end
+
+# 環境設定 (次回以降)
 template '/etc/profile.d/glassfish.sh'

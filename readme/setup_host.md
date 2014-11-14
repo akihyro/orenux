@@ -62,7 +62,7 @@ $ ssh-keygen -t rsa -N "" -f ~/.ssh/github_rsa
 ```
 $ vi ~/.ssh/config
 Host github.com
-	IdentityFile ~/.ssh/github_rsa
+    IdentityFile ~/.ssh/github_rsa
 ```
 
 

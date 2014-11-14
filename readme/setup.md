@@ -46,6 +46,7 @@ $ vagrant plugin install vagrant-vbox-snapshot
 
 ```
 $ git clone https://github.com/akihyro/orenux.git
+$ cd orenux
 ```
 
 
