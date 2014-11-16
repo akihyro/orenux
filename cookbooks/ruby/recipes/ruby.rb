@@ -5,9 +5,11 @@
 # インストール
 bash 'ruby::ruby::install' do
   not_if <<-EOC
+    eval "$(rbenv init -)"
     rbenv versions | grep -q 2.1.5
   EOC
   code <<-EOC
+    eval "$(rbenv init -)"
     rbenv install 2.1.5
   EOC
 end
@@ -15,11 +17,13 @@ end
 # Bundler インストール
 bash 'ruby::ruby::install-bundler' do
   not_if <<-EOC
+    eval "$(rbenv init -)"
     rbenv shell 2.1.5
-    rbenv exec gem list bundler | egrep -q '^bundler'
+    gem list bundler | egrep -q '^bundler'
   EOC
   code <<-EOC
+    eval "$(rbenv init -)"
     rbenv shell 2.1.5
-    rbenv exec gem install bundler
+    gem install bundler
   EOC
 end

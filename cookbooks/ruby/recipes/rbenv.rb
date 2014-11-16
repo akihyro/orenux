@@ -20,11 +20,12 @@ end
 # 環境設定 (即時)
 ruby_block 'ruby::rbenv::env' do
   not_if do
-    ENV['RBENV_ROOT'] == '/opt/rbenv-0.4.0'
+    ENV['RBENV_ROOT'] == '/opt/rbenv-0.4.0' && ENV['RUBY_BUILD_CACHE_PATH'] == '/vagrant/.orenux-cache/ruby'
   end
   block do
     ENV['RBENV_ROOT'] = '/opt/rbenv-0.4.0'
     ENV['PATH'] = "#{ENV['RBENV_ROOT']}/bin:#{ENV['PATH']}"
+    ENV['RUBY_BUILD_CACHE_PATH'] = '/vagrant/.orenux-cache/ruby'
   end
 end
 
