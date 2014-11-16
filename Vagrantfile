@@ -46,6 +46,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'tools::expat',
       'tools::gcc',
       'tools::gettext',
+      'tools::kernel',
       'tools::lv',
       'tools::openssl',
       'tools::perl',
