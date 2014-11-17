@@ -22,7 +22,6 @@ bash 'redis::service::install' do
     test -f /etc/init.d/redis_6379
   EOC
   code <<-EOC
-    . /etc/profile.d/redis.sh
     cd $REDIS_HOME/utils
     ./install_server.sh
   EOC
