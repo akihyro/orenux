@@ -2,6 +2,15 @@
 # akihyro: dotfiles
 #=======================================================================================================================
 
+# ローカルリポジトリ
+git '/home/akihyro/dotfiles' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/dotfiles.git'
+  enable_checkout false
+end
+
 # git 設定
 template '/home/akihyro/.gitconfig' do
   owner 'akihyro'
