@@ -43,6 +43,15 @@ git '/home/akihyro/try-jaxrs' do
   enable_checkout false
 end
 
+# Spring Boot !!
+git '/home/akihyro/try-spring-boot' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/try-spring-boot.git'
+  enable_checkout false
+end
+
 # VagrantでEC2インスタンスを構築してみる
 git '/home/akihyro/try-vagrant-aws' do
   action :checkout
