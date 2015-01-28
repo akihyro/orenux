@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   config.vm.network :private_network, ip: '192.168.33.10'
 
   # 同期フォルダ
-  config.vm.synced_folder "#{ENV['SYSTEMDRIVE']}/", '/host/system'
+  config.vm.synced_folder "#{ENV['SYSTEMDRIVE']}/", '/host/sys'
   config.vm.synced_folder ENV['HOME'], '/host/home'
 
   # Chef
