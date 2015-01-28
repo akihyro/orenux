@@ -12,11 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   config.vm.hostname = 'orenux'
   config.vm.network :private_network, ip: '192.168.33.10'
 
-  # プロキシ
-  config.proxy.http = ENV['http_proxy'] || ENV['HTTP_PROXY']
-  config.proxy.https = ENV['https_proxy'] || ENV['HTTPS_PROXY']
-  config.proxy.no_proxy = ENV['no_proxy'] || ENV['NO_PROXY']
-
   # 同期フォルダ
   config.vm.synced_folder "#{ENV['SYSTEMDRIVE']}/", '/host/system'
   config.vm.synced_folder ENV['HOME'], '/host/home'

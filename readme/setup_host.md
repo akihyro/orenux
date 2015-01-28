@@ -2,29 +2,18 @@
 ====================================
 
 
-msysgit インストール (Windowsユーザ向け)
-----------------------------------------
+ターミナル インストール
+-----------------------
 
-Windowsユーザは、 [msysgit](http://msysgit.github.io) をダウンロード/インストールする。  
-以後、同梱の Git Bash をターミナルとして使う。  
+[GitHub for Windows](https://windows.github.com) をダウンロード/インストールする。  
+GitHub を起動し、 [Options] から下記の通り設定する。  
 
+* Configure git
+    * Git で使うユーザ名/メールアドレスを入力。
+* Default shell
+    * [Git Bash] を選択。
 
-プロキシ設定 (プロキシ利用環境向け)
------------------------------------
-
-プロキシが必要な環境に居る場合は、プロキシを設定する。  
-
-```
-$ vi ~/.bashrc
-export http_proxy="..."
-export HTTP_PROXY=$http_proxy
-export https_proxy="..."
-export HTTPS_PROXY=$https_proxy
-export no_proxy="localhost,127.0.0.1"
-export NO_PROXY=$no_proxy
-
-$ . ~/.bashrc
-```
+以後、同梱の Git Shell をターミナルとして使う。  
 
 
 GitHub SSL接続用 アクセストークン 発行
