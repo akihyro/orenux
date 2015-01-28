@@ -20,7 +20,7 @@ end
 # ruby-build ダウンロード
 git '/opt/rbenv-0.4.0/plugins/ruby-build' do
   repository 'https://github.com/sstephenson/ruby-build.git'
-  revision 'v20141113'
+  revision 'v20150116'
 end
 
 # rbenv-gem-rehash ダウンロード

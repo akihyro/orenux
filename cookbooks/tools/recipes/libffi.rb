@@ -1,15 +1,7 @@
 #=======================================================================================================================
-# Ruby: Ruby
+# Tools: libffi
 #=======================================================================================================================
 
 # インストール
-bash 'ruby::ruby::install' do
-  not_if <<-EOC
-    eval "$(rbenv init --no-rehash -)"
-    rbenv versions | grep -q 2.2.0
-  EOC
-  code <<-EOC
-    eval "$(rbenv init --no-rehash -)"
-    rbenv install 2.2.0
-  EOC
-end
+yum_package 'libffi'
+yum_package 'libffi-devel'
