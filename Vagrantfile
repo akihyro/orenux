@@ -16,6 +16,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   config.vm.synced_folder "#{ENV['SYSTEMDRIVE']}/", '/host/sys'
   config.vm.synced_folder ENV['HOME'], '/host/home'
 
+  # VirtualBox
+  config.vm.provider :virtualbox do |vb|
+    vb.memory = 1024
+  end
+
   # Chef
   config.omnibus.chef_version = :latest
   config.vm.provision :chef_solo do |chef|
