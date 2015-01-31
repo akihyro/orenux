@@ -11,16 +11,16 @@ git '/home/akihyro/dotfiles' do
   enable_checkout false
 end
 
-# git 設定
-template '/home/akihyro/.gitconfig' do
-  owner 'akihyro'
+# インストール
+bash 'akihyro::dotfiles::install' do
+  user 'akihyro'
   group 'akihyro'
-  source 'dotfiles.gitconfig.erb'
-end
-
-# git 属性設定
-template '/home/akihyro/.gitattributes' do
-  owner 'akihyro'
-  group 'akihyro'
-  source 'dotfiles.gitattributes.erb'
+  environment 'HOME' => '/home/akihyro'
+  not_if <<-EOC
+    test -f /home/akihyro/.dotfiles.installed
+  EOC
+  code <<-EOC
+    /home/akihyro/dotfiles/install.sh
+    touch /home/akihyro/.dotfiles.installed
+  EOC
 end
