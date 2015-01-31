@@ -22,9 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   end
 
   # Chef
-  config.omnibus.chef_version = :latest
-  config.vm.provision :chef_solo do |chef|
-    chef.custom_config_path = 'Vagrantfile.chef'
+  config.vm.provision :chef_zero do |chef|
     chef.run_list = [
       'base',
       'base::locale',
