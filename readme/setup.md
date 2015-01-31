@@ -20,7 +20,6 @@ Vagrant プラグイン インストール (必須)
 Vagrantプラグインをインストールする。  
 
 ```
-$ vagrant plugin install vagrant-omnibus
 $ vagrant plugin install vagrant-vbguest
 ```
 
