@@ -9,18 +9,18 @@ link '/home/akihyro/orenux' do
   to '/vagrant'
 end
 
-# sync-box
-link '/home/akihyro/sync-box' do
-  owner 'akihyro'
-  group 'akihyro'
-  to '/host/home/sync-box'
-end
-
 # Sublime Text 3 Settings
 link '/home/akihyro/sublime-text-settings' do
   owner 'akihyro'
   group 'akihyro'
   to '/host/home/AppData/Roaming/Sublime Text 3'
+end
+
+# Sync Walker
+link '/home/akihyro/sync-walker' do
+  owner 'akihyro'
+  group 'akihyro'
+  to '/host/home/sync-walker'
 end
 
 # rakugaki-box.net
