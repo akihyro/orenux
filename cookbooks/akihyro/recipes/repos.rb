@@ -32,6 +32,15 @@ git '/home/akihyro/rakugaki-box.net' do
   enable_checkout false
 end
 
+# shibain
+git '/home/akihyro/shibain' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/shibain.git'
+  enable_checkout false
+end
+
 # tsubaiso-bookmarklet
 git '/home/akihyro/tsubaiso-bookmarklet' do
   action :checkout
