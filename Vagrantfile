@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'tools::openssl',
       'tools::perl',
       'tools::readline',
+      'tools::rsync',
       'tools::libffi',
       'tools::sl',
       'tools::tree',
