@@ -19,6 +19,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   # VirtualBox
   config.vm.provider :virtualbox do |vb|
     vb.memory = 1024
+    vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+    vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
   end
 
   # Chef
@@ -75,6 +77,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'akihyro::dotfiles',
       'akihyro::keys',
       'akihyro::samba',
+      'akihyro::vagrant',
       'akihyro::repos',
     ]
   end
