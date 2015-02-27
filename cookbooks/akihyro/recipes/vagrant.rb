@@ -10,11 +10,17 @@
   'vagrant-omnibus',
 ].each do |plugin|
   bash "akihyro::vagrant::#{plugin}" do
-    not_if <<-EOC
-      su - akihyro -c 'vagrant plugin list' | egrep -q '^#{plugin} '
+    user 'akihyro'
+    group 'akihyro'
+    environment 'HOME' => '/home/akihyro'
+    not_if <<-EOC,
+      vagrant plugin list | egrep -q '^#{plugin} '
     EOC
+      :user => 'akihyro',
+      :group => 'akihyro',
+      :environment => { 'HOME' => '/home/akihyro' }
     code <<-EOC
-      su - akihyro -c 'vagrant plugin install #{plugin}'
+      vagrant plugin install #{plugin}
     EOC
   end
 end
