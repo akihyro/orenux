@@ -17,10 +17,9 @@ bash 'akihyro::dotfiles::install' do
   group 'akihyro'
   environment 'HOME' => '/home/akihyro'
   not_if <<-EOC
-    test -f /home/akihyro/.dotfiles.installed
+    test -f /home/akihyro/.dotfiles
   EOC
   code <<-EOC
     /home/akihyro/dotfiles/install.sh
-    touch /home/akihyro/.dotfiles.installed
   EOC
 end
