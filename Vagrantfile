@@ -30,7 +30,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'base::locale',
       'base::selinux',
       'base::history',
-      'base::prompt',
       'yum',
       'yum::plugin-fastestmirror',
       'yum::repo-epel',
