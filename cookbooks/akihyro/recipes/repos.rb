@@ -59,6 +59,15 @@ git '/home/akihyro/cloud-print-console' do
   enable_checkout false
 end
 
+# Spring Boot Camp Hands-on
+git '/home/akihyro/spring-boot-camp-handson' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/spring-boot-camp-handson.git'
+  enable_checkout false
+end
+
 # GlassFish4 + JAX-RS (Jersey) で REST なアプリを作ってみる
 git '/home/akihyro/try-jaxrs' do
   action :checkout
