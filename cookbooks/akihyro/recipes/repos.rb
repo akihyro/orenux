@@ -86,6 +86,15 @@ git '/home/akihyro/try-spring-boot' do
   enable_checkout false
 end
 
+# Log4j2 の設定を YAML で書く, Spring Boot でも使ってみる
+git '/home/akihyro/try-log4j2-yaml' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/try-log4j2-yaml.git'
+  enable_checkout false
+end
+
 # VagrantでEC2インスタンスを構築してみる
 git '/home/akihyro/try-vagrant-aws' do
   action :checkout
