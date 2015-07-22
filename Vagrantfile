@@ -60,6 +60,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'git',
       'aws',
       'aws::cli',
+      'jq',
       'samba',
       'nginx',
       'ruby',
