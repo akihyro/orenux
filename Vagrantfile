@@ -68,7 +68,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'nodejs::bower',
       'java',
       'maven',
-      'glassfish',
       'redis',
       'redis::service',
       'vagrant',
