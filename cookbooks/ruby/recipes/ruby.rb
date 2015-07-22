@@ -6,10 +6,10 @@
 bash 'ruby::ruby::install' do
   not_if <<-EOC
     eval "$(rbenv init --no-rehash -)"
-    rbenv versions | grep -q 2.2.0
+    rbenv versions | grep -q 2.2.2
   EOC
   code <<-EOC
     eval "$(rbenv init --no-rehash -)"
-    rbenv install 2.2.0
+    rbenv install 2.2.2
   EOC
 end
