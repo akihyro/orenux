@@ -25,6 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
 
   # Chef
   config.vm.provision :chef_zero do |chef|
+    chef.cookbooks_path = "cookbooks"
     chef.run_list = [
       'base',
       'base::locale',
