@@ -103,3 +103,12 @@ git '/home/akihyro/try-vagrant-aws' do
   repository 'https://github.com/akihyro/try-vagrant-aws.git'
   enable_checkout false
 end
+
+# Spring Boot で Redis を使う！
+git '/home/akihyro/try-spring-boot-with-redis' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'https://github.com/akihyro/try-spring-boot-with-redis.git'
+  enable_checkout false
+end
