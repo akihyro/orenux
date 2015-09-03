@@ -25,9 +25,11 @@ git '/home/akihyro/rakugakibox.net' do
   enable_checkout false
 end
 
-# Sync Walker
-link '/home/akihyro/sync-walker' do
-  owner 'akihyro'
+# SyncWalker
+git '/home/akihyro/syncwalker' do
+  action :checkout
+  user 'akihyro'
   group 'akihyro'
-  to '/host/home/sync-walker'
+  repository 'https://github.com/akihyro/syncwalker.git'
+  enable_checkout false
 end
