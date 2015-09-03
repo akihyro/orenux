@@ -2,14 +2,6 @@
 # akihyro: 鍵
 #=======================================================================================================================
 
-# 自動ログイン
-file '/home/akihyro/.netrc' do
-  owner 'akihyro'
-  group 'akihyro'
-  mode '0600'
-  content IO.read('/host/home/.netrc')
-end if File.file?('/host/home/.netrc')
-
 # SSH ディレクトリ
 directory '/home/akihyro/.ssh' do
   owner 'akihyro'
@@ -34,17 +26,17 @@ template '/home/akihyro/.ssh/known_hosts' do
 end
 
 # SSH GitHub 秘密鍵
-file '/home/akihyro/.ssh/github_rsa' do
+file '/home/akihyro/.ssh/github' do
   owner 'akihyro'
   group 'akihyro'
   mode '0600'
-  content IO.read('/host/home/.ssh/github_rsa')
-end if File.file?('/host/home/.ssh/github_rsa')
+  content IO.read('/host/home/.ssh/github')
+end
 
 # SSH GitHub 公開鍵
-file '/home/akihyro/.ssh/github_rsa.pub' do
+file '/home/akihyro/.ssh/github.pub' do
   owner 'akihyro'
   group 'akihyro'
   mode '0644'
-  content IO.read('/host/home/.ssh/github_rsa.pub')
-end if File.file?('/host/home/.ssh/github_rsa.pub')
+  content IO.read('/host/home/.ssh/github.pub')
+end

@@ -75,10 +75,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'vagrant',
       'akihyro',
       'akihyro::sudo',
-      'akihyro::dotfiles',
       'akihyro::keys',
       'akihyro::samba',
       'akihyro::vagrant',
+      'akihyro::dotfiles',
       'akihyro::repos',
     ]
   end

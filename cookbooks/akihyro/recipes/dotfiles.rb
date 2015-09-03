@@ -7,7 +7,7 @@ git '/home/akihyro/dotfiles' do
   action :checkout
   user 'akihyro'
   group 'akihyro'
-  repository 'https://github.com/akihyro/dotfiles.git'
+  repository 'git@github.com:akihyro/dotfiles.git'
   enable_checkout false
 end
 

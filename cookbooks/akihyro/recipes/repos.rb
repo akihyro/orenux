@@ -16,12 +16,12 @@ link '/home/akihyro/sublime-text-settings' do
   to '/host/home/AppData/Roaming/Sublime Text 3'
 end
 
-# rakugaki-box.net
+# Rakugaki BOX
 git '/home/akihyro/rakugakibox.net' do
   action :checkout
   user 'akihyro'
   group 'akihyro'
-  repository 'https://github.com/akihyro/rakugakibox.net.git'
+  repository 'git@github.com:akihyro/rakugakibox.net.git'
   enable_checkout false
 end
 
@@ -30,6 +30,6 @@ git '/home/akihyro/syncwalker' do
   action :checkout
   user 'akihyro'
   group 'akihyro'
-  repository 'https://github.com/akihyro/syncwalker.git'
+  repository 'git@github.com:akihyro/syncwalker.git'
   enable_checkout false
 end
