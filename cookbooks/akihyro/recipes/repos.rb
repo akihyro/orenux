@@ -2,7 +2,7 @@
 # akihyro: リポジトリ
 #=======================================================================================================================
 
-# 俺用 Linux 仮想環境
+# 俺俺 Linux 仮想環境
 link '/home/akihyro/orenux' do
   owner 'akihyro'
   group 'akihyro'
@@ -16,13 +16,6 @@ link '/home/akihyro/sublime-text-settings' do
   to '/host/home/AppData/Roaming/Sublime Text 3'
 end
 
-# Sync Walker
-link '/home/akihyro/sync-walker' do
-  owner 'akihyro'
-  group 'akihyro'
-  to '/host/home/sync-walker'
-end
-
 # rakugaki-box.net
 git '/home/akihyro/rakugaki-box.net' do
   action :checkout
@@ -32,83 +25,9 @@ git '/home/akihyro/rakugaki-box.net' do
   enable_checkout false
 end
 
-# shibain
-git '/home/akihyro/shibain' do
-  action :checkout
-  user 'akihyro'
+# Sync Walker
+link '/home/akihyro/sync-walker' do
+  owner 'akihyro'
   group 'akihyro'
-  repository 'https://github.com/akihyro/shibain.git'
-  enable_checkout false
-end
-
-# tsubaiso-bookmarklet
-git '/home/akihyro/tsubaiso-bookmarklet' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/tsubaiso-bookmarklet.git'
-  enable_checkout false
-end
-
-# Cloud Print Console
-git '/home/akihyro/cloud-print-console' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/cloud-print-console.git'
-  enable_checkout false
-end
-
-# Spring Boot Camp Hands-on
-git '/home/akihyro/spring-boot-camp-handson' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/spring-boot-camp-handson.git'
-  enable_checkout false
-end
-
-# GlassFish4 + JAX-RS (Jersey) で REST なアプリを作ってみる
-git '/home/akihyro/try-jaxrs' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/try-jaxrs.git'
-  enable_checkout false
-end
-
-# Spring Boot !!
-git '/home/akihyro/try-spring-boot' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/try-spring-boot.git'
-  enable_checkout false
-end
-
-# Log4j2 の設定を YAML で書く, Spring Boot でも使ってみる
-git '/home/akihyro/try-log4j2-yaml' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/try-log4j2-yaml.git'
-  enable_checkout false
-end
-
-# VagrantでEC2インスタンスを構築してみる
-git '/home/akihyro/try-vagrant-aws' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/try-vagrant-aws.git'
-  enable_checkout false
-end
-
-# Spring Boot で Redis を使う！
-git '/home/akihyro/try-spring-boot-with-redis' do
-  action :checkout
-  user 'akihyro'
-  group 'akihyro'
-  repository 'https://github.com/akihyro/try-spring-boot-with-redis.git'
-  enable_checkout false
+  to '/host/home/sync-walker'
 end
