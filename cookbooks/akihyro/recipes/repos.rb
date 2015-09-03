@@ -17,11 +17,11 @@ link '/home/akihyro/sublime-text-settings' do
 end
 
 # rakugaki-box.net
-git '/home/akihyro/rakugaki-box.net' do
+git '/home/akihyro/rakugakibox.net' do
   action :checkout
   user 'akihyro'
   group 'akihyro'
-  repository 'https://github.com/akihyro/rakugaki-box.net.git'
+  repository 'https://github.com/akihyro/rakugakibox.net.git'
   enable_checkout false
 end
 
