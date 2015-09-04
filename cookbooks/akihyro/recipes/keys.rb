@@ -14,15 +14,7 @@ template '/home/akihyro/.ssh/config' do
   owner 'akihyro'
   group 'akihyro'
   mode '0644'
-  source 'keys.ssh-config.erb'
-end
-
-# SSH 既知ホスト
-template '/home/akihyro/.ssh/known_hosts' do
-  owner 'akihyro'
-  group 'akihyro'
-  mode '0644'
-  source 'keys.ssh-known_hosts.erb'
+  source 'keys.config.erb'
 end
 
 # SSH GitHub 秘密鍵
