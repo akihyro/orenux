@@ -71,8 +71,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
       'maven',
       'nginx',
       'nodejs',
-      'nodejs::bower',
-      'nodejs::grunt',
       'peco',
       'ruby',
       'ruby::rbenv',
