@@ -14,13 +14,13 @@ directory '/opt/rbenv-0.4.0/plugins'
 # rbenv-update ダウンロード
 git '/opt/rbenv-0.4.0/plugins/rbenv-update' do
   repository 'https://github.com/rkh/rbenv-update.git'
-  revision 'bf757453498337807a46e24074d29173f1a8abec'
+  revision 'a7bf727118eb497b1873ad23aa8451f16a3db646'
 end
 
 # ruby-build ダウンロード
 git '/opt/rbenv-0.4.0/plugins/ruby-build' do
   repository 'https://github.com/sstephenson/ruby-build.git'
-  revision 'v20150719'
+  revision 'v20150818'
 end
 
 # rbenv-gem-rehash ダウンロード
