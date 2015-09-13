@@ -33,3 +33,12 @@ git '/home/akihyro/syncwalker' do
   repository 'git@github.com:akihyro/syncwalker.git'
   enable_checkout false
 end
+
+# YamlResourceBundle
+git '/home/akihyro/yaml-resource-bundle' do
+  action :checkout
+  user 'akihyro'
+  group 'akihyro'
+  repository 'git@github.com:akihyro/yaml-resource-bundle.git'
+  enable_checkout false
+end
