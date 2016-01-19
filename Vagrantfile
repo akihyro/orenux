@@ -1,8 +1,8 @@
 #=======================================================================================================================
-# Vagrant 設定
+# Vagrant
 #=======================================================================================================================
 
-Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
+Vagrant.configure(VAGRANTFILE_API_VERSION = '2') do |config|
 
   # Boxファイル
   config.vm.box = 'opscode-centos-6.7'
@@ -13,7 +13,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
   config.vm.network :private_network, ip: '192.168.33.10'
 
   # 同期フォルダ
-  config.vm.synced_folder "#{ENV['SYSTEMDRIVE']}/", '/host/sys'
   config.vm.synced_folder ENV['HOME'], '/host/home'
 
   # VirtualBox
@@ -25,7 +24,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = "2") do |config|
 
   # Chef
   config.vm.provision :chef_zero do |chef|
-    chef.cookbooks_path = "cookbooks"
+    chef.cookbooks_path = 'cookbooks'
+    chef.nodes_path = 'nodes'
+    chef.node_name = 'orenux'
     chef.run_list = [
       'base',
       'base::locale',
