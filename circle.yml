@@ -1,0 +1,24 @@
+#=======================================================================================================================
+# CircleCI
+#=======================================================================================================================
+
+machine:
+  timezone: Asia/Tokyo
+  services:
+    - docker
+
+dependencies:
+  override:
+    - "mkdir -p ~/.vagrant"
+    - "wget -nc -P ~/.vagrant https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb"
+    - "sudo dpkg -i ~/.vagrant/vagrant_1.8.1_x86_64.deb"
+  cache_directories:
+    - "~/.vagrant"
+    - "~/.vagrant.d"
+
+test:
+  override:
+    - "vagrant up":
+        timeout: 1800
+    - "vagrant provision"
+    - "vagrant halt"

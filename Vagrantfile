@@ -20,6 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
 
   config.vm.provider :docker do |docker, config|
     docker.build_dir = 'docker'
+    docker.build_args = []
+    docker.build_args << '--rm=false' if ENV['CIRCLECI']
     docker.has_ssh = true
   end
 
