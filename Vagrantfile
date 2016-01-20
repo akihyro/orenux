@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
     config.vm.box_url =
       'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.7_chef-provisionerless.box'
     config.vm.network :private_network, ip: '192.168.33.10'
+    virtualbox.cpus = 1
     virtualbox.memory = 1024
     virtualbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
     virtualbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
