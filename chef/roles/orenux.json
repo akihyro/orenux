@@ -7,6 +7,7 @@
     "recipe[yum::plugin-fastestmirror]",
     "recipe[yum::update]",
     "recipe[yum::repo-epel]",
-    "recipe[yum::repo-rpmforge]"
+    "recipe[yum::repo-rpmforge]",
+    "recipe[yum::packages]"
   ]
 }

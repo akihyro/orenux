@@ -5,12 +5,10 @@
 FROM centos:6.7
 
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
-RUN yum install -y passwd
-RUN yum install -y sudo
-RUN yum install -y which
 RUN yum install -y openssh
 RUN yum install -y openssh-server
 RUN yum install -y openssh-clients
+RUN yum install -y sudo
 
 RUN echo root:vagrant | chpasswd
 
