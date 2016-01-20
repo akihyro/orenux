@@ -1,5 +1,8 @@
 {
   "name": "orenux",
   "run_list": [
+    "recipe[system::locale]",
+    "recipe[system::selinux]",
+    "recipe[system::history]"
   ]
 }
