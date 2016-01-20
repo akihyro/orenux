@@ -18,6 +18,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
     virtualbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
   end
 
+  config.vm.provider :docker do |docker, config|
+    docker.build_dir = 'docker'
+    docker.has_ssh = true
+  end
+
   config.vm.provision :chef_zero do |chef|
     chef.cookbooks_path = 'cookbooks'
     chef.nodes_path = 'nodes'
