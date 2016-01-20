@@ -26,7 +26,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = '2') do |config|
   config.vm.provision :chef_zero do |chef|
     chef.cookbooks_path = 'cookbooks'
     chef.nodes_path = 'nodes'
-    chef.node_name = 'orenux'
     chef.run_list = [
       'base',
       'base::locale',
