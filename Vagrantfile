@@ -27,8 +27,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
 
   config.vm.provision :chef_zero do |chef|
     chef.cookbooks_path = 'cookbooks'
+    chef.roles_path = 'roles'
     chef.nodes_path = 'nodes'
-    chef.run_list = []
+    chef.run_list = [
+      'role[orenux]'
+    ]
   end
 
 end
