@@ -4,6 +4,7 @@
 
 FROM centos:6.7
 
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 RUN yum install -y passwd
 RUN yum install -y sudo
 RUN yum install -y which
