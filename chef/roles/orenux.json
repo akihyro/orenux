@@ -3,6 +3,10 @@
   "run_list": [
     "recipe[system::locale]",
     "recipe[system::selinux]",
-    "recipe[system::history]"
+    "recipe[system::history]",
+    "recipe[yum::plugin-fastestmirror]",
+    "recipe[yum::update]",
+    "recipe[yum::repo-epel]",
+    "recipe[yum::repo-rpmforge]"
   ]
 }

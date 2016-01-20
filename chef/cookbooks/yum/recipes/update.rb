@@ -3,8 +3,6 @@
 #=======================================================================================================================
 
 # アップデート
-bash 'yum::update::update' do
-  code <<-EOC
-    yum update -y
-  EOC
+bash "yum::update::update" do
+  code "yum update -y"
 end
