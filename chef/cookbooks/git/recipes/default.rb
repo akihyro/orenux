@@ -14,7 +14,7 @@ bash "git::extract" do
 end
 
 # ビルド/インストール
-bash 'git::install' do
+bash "git::install" do
   cwd "/opt/git-2.7.0"
   code <<-EOC
     make configure

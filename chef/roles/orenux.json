@@ -11,6 +11,7 @@
     "recipe[yum::packages]",
     "recipe[git]",
     "recipe[aws::cli]",
-    "recipe[java]"
+    "recipe[java]",
+    "recipe[jq]"
   ]
 }
