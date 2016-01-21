@@ -2,59 +2,43 @@
 # Git
 #=======================================================================================================================
 
-# キャッシュディレクトリ
-directory '/vagrant/.orenux-cache/git'
-
 # ダウンロード
-remote_file '/vagrant/.orenux-cache/git/git-2.5.2.tar.gz' do
-  source 'https://github.com/git/git/archive/v2.5.2.tar.gz'
-  checksum '5130a7f21fd38f108c1c2f38e70ed7756f9942f4cd84c35823c6be2390bb45ff'
+remote_file "#{Chef::Config['file_cache_path']}/git-2.7.0.tar.gz" do
+  source "https://github.com/git/git/archive/v2.7.0.tar.gz"
 end
 
 # 展開
-bash 'git::extract' do
-  not_if <<-EOC
-    test -d /opt/git-2.5.2
-  EOC
-  code <<-EOC
-    tar xfz /vagrant/.orenux-cache/git/git-2.5.2.tar.gz -C /opt
-  EOC
+bash "git::extract" do
+  code "tar xfz #{Chef::Config['file_cache_path']}/git-2.7.0.tar.gz -C /opt"
+  not_if "test -d /opt/git-2.7.0"
 end
 
 # ビルド/インストール
 bash 'git::install' do
-  not_if <<-EOC
-    test -d /opt/git-2.5.2/bin
-  EOC
+  cwd "/opt/git-2.7.0"
   code <<-EOC
-    cd /opt/git-2.5.2
     make configure
-    ./configure --prefix=/opt/git-2.5.2
+    ./configure --prefix=${PWD}
     make all
     make install
   EOC
+  not_if "test -d /opt/git-2.7.0/bin"
 end
 
-# 環境設定 (即時)
-ruby_block 'git::env' do
-  not_if do
-    ENV['GIT_HOME'] == '/opt/git-2.5.2'
-  end
+# 環境設定
+ruby_block "git::env" do
   block do
-    ENV['GIT_HOME'] = '/opt/git-2.5.2'
-    ENV['PATH'] = "#{ENV['GIT_HOME']}/bin:#{ENV['PATH']}"
+    ENV["GIT_HOME"] = "/opt/git-2.7.0"
+    ENV["PATH"] = "#{ENV['GIT_HOME']}/bin:#{ENV['PATH']}"
   end
+  not_if { ENV["GIT_HOME"] == "/opt/git-2.7.0" }
 end
-
-# 環境設定 (次回以降)
-template '/etc/profile.d/git.sh'
-
-# プロンプト
-link '/etc/profile.d/git-prompt.sh' do
-  to '/opt/git-2.5.2/contrib/completion/git-prompt.sh'
+template "/etc/profile.d/git.sh" do
+  source "git.sh.erb"
 end
-
-# コマンド補完
-link '/etc/bash_completion.d/git' do
-  to '/opt/git-2.5.2/contrib/completion/git-completion.bash'
+link "/etc/profile.d/git-prompt.sh" do
+  to "/opt/git-2.7.0/contrib/completion/git-prompt.sh"
+end
+link "/etc/bash_completion.d/git" do
+  to "/opt/git-2.7.0/contrib/completion/git-completion.bash"
 end

@@ -8,6 +8,7 @@
     "recipe[yum::update]",
     "recipe[yum::repo-epel]",
     "recipe[yum::repo-rpmforge]",
-    "recipe[yum::packages]"
+    "recipe[yum::packages]",
+    "recipe[git]"
   ]
 }
