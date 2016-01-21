@@ -1,16 +1,16 @@
 #=======================================================================================================================
-# samba
+# Samba
 #=======================================================================================================================
 
 # インストール
-yum_package 'samba'
+yum_package "samba"
 
-# サービス
-service 'smb' do
+# サービス起動
+service "smb" do
   action [:enable, :start]
 end
 
 # 設定
-template '/etc/samba/smb.conf' do
+template "/etc/samba/smb.conf" do
   notifies :restart, "service[smb]"
 end

@@ -18,6 +18,7 @@
     "recipe[nodejs]",
     "recipe[peco]",
     "recipe[ruby::rbenv]",
-    "recipe[ruby::ruby]"
+    "recipe[ruby::ruby]",
+    "recipe[samba]"
   ]
 }
