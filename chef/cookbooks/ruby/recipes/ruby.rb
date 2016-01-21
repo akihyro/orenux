@@ -3,13 +3,7 @@
 #=======================================================================================================================
 
 # インストール
-bash 'ruby::ruby::install' do
-  not_if <<-EOC
-    eval "$(rbenv init --no-rehash -)"
-    rbenv versions | grep -q 2.2.3
-  EOC
-  code <<-EOC
-    eval "$(rbenv init --no-rehash -)"
-    rbenv install 2.2.3
-  EOC
+bash "ruby::ruby::install" do
+  code "rbenv install 2.3.0"
+  not_if "rbenv versions | grep -q 2.3.0"
 end
