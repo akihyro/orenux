@@ -1,13 +1,9 @@
 #=======================================================================================================================
-# akihyro: samba
+# akihyro: Samba
 #=======================================================================================================================
 
 # ユーザ
-bash 'akihyro::samba::pdbedit' do
-  not_if <<-EOC
-    pdbedit -L | egrep -q 'akihyro'
-  EOC
-  code <<-EOC
-    echo '\n\n' | pdbedit -a -t akihyro
-  EOC
+bash "akihyro::samba::pdbedit" do
+  code "echo -e '\n' | pdbedit -a -t -u akihyro -f 'Akihiro Kondo'"
+  not_if "pdbedit -L akihyro"
 end

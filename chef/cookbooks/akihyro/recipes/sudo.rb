@@ -3,6 +3,6 @@
 #=======================================================================================================================
 
 # sudoers
-template '/etc/sudoers.d/akihyro' do
-  source 'sudo.akihyro.erb'
+template "/etc/sudoers.d/akihyro" do
+  source "sudo.akihyro.erb"
 end

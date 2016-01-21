@@ -2,9 +2,9 @@
 # akihyro
 #=======================================================================================================================
 
-# ユーザ
-user 'akihyro' do
-  password '$1$CnTsphAm$UlWV9IgO6gcX.WKJxDXz80'
-  comment 'akihyro'
+# ユーザ作成
+user "akihyro" do
+  password "$1$CnTsphAm$UlWV9IgO6gcX.WKJxDXz80"
+  comment "Akihiro Kondo"
   supports :manage_home => true
 end

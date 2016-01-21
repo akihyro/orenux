@@ -19,6 +19,13 @@
     "recipe[ruby::rbenv]",
     "recipe[ruby::ruby]",
     "recipe[samba]",
-    "recipe[vagrant]"
+    "recipe[vagrant]",
+    "recipe[akihyro]",
+    "recipe[akihyro::sudo]",
+    "recipe[akihyro::ssh]",
+    "recipe[akihyro::samba]",
+    "recipe[akihyro::vagrant]",
+    "recipe[akihyro::dotfiles]",
+    "recipe[akihyro::repos]"
   ]
 }
