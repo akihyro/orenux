@@ -2,36 +2,26 @@
 # Maven
 #=======================================================================================================================
 
-# キャッシュディレクトリ
-directory '/vagrant/.orenux-cache/maven'
-
 # ダウンロード
-remote_file '/vagrant/.orenux-cache/maven/apache-maven-3.3.3-bin.tar.gz' do
-  source 'http://ftp.jaist.ac.jp/pub/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz'
-  checksum '3a8dc4a12ab9f3607a1a2097bbab0150c947ad6719d8f1bb6d5b47d0fb0c4779'
+remote_file "#{Chef::Config['file_cache_path']}/apache-maven-3.3.9-bin.tar.gz" do
+  source "http://ftp.jaist.ac.jp/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
 end
 
 # 展開
-bash 'maven::extract' do
-  not_if <<-EOC
-    test -d /opt/maven-3.3.3
-  EOC
+bash "maven::extract" do
+  not_if "test -d /opt/maven-3.3.9"
   code <<-EOC
-    tar xfz /vagrant/.orenux-cache/maven/apache-maven-3.3.3-bin.tar.gz -C /opt
-    mv /opt/apache-maven-3.3.3 /opt/maven-3.3.3
+    tar xfz #{Chef::Config['file_cache_path']}/apache-maven-3.3.9-bin.tar.gz -C /opt
+    mv /opt/apache-maven-3.3.9 /opt/maven-3.3.9
   EOC
 end
 
-# 環境設定 (即時)
-ruby_block 'maven::env' do
-  not_if do
-    ENV['M2_HOME'] == '/opt/maven-3.3.3'
-  end
+# 環境設定
+ruby_block "maven::env" do
   block do
-    ENV['M2_HOME'] = '/opt/maven-3.3.3'
-    ENV['PATH'] = "#{ENV['M2_HOME']}/bin:#{ENV['PATH']}"
+    ENV["M2_HOME"] = "/opt/maven-3.3.9"
+    ENV["PATH"] = "#{ENV['M2_HOME']}/bin:#{ENV['PATH']}"
   end
+  not_if { ENV["M2_HOME"] == "/opt/maven-3.3.9" }
 end
-
-# 環境設定 (次回以降)
-template '/etc/profile.d/maven.sh'
+template "/etc/profile.d/maven.sh"

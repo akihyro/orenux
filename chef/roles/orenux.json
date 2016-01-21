@@ -12,6 +12,7 @@
     "recipe[git]",
     "recipe[aws::cli]",
     "recipe[java]",
-    "recipe[jq]"
+    "recipe[jq]",
+    "recipe[maven]"
   ]
 }
