@@ -19,6 +19,7 @@
     "recipe[peco]",
     "recipe[ruby::rbenv]",
     "recipe[ruby::ruby]",
-    "recipe[samba]"
+    "recipe[samba]",
+    "recipe[vagrant]"
   ]
 }
