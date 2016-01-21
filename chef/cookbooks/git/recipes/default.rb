@@ -33,9 +33,7 @@ ruby_block "git::env" do
   end
   not_if { ENV["GIT_HOME"] == "/opt/git-2.7.0" }
 end
-template "/etc/profile.d/git.sh" do
-  source "git.sh.erb"
-end
+template "/etc/profile.d/git.sh"
 link "/etc/profile.d/git-prompt.sh" do
   to "/opt/git-2.7.0/contrib/completion/git-prompt.sh"
 end

@@ -10,6 +10,7 @@
     "recipe[yum::repo-rpmforge]",
     "recipe[yum::packages]",
     "recipe[git]",
-    "recipe[aws::cli]"
+    "recipe[aws::cli]",
+    "recipe[java]"
   ]
 }
