@@ -14,6 +14,7 @@
     "recipe[java]",
     "recipe[jq]",
     "recipe[maven]",
-    "recipe[nodejs]"
+    "recipe[nodejs]",
+    "recipe[peco]"
   ]
 }
