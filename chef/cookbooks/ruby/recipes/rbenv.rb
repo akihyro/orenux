@@ -43,11 +43,11 @@ end
 # 環境設定
 ruby_block "ruby::ruby::env" do
   block do
-    ENV["RBENV_ROOT"] = "/opt/rbenv-1.0.0"
-    ENV["PATH"] = "#{ENV['RBENV_ROOT']}/bin:#{ENV['PATH']}"
-    ENV["PATH"] = "#{ENV['RBENV_ROOT']}/shims:#{ENV['PATH']}"
+    ENV['RBENV_ROOT'] = "/opt/rbenv-1.0.0"
+    ENV['PATH'] = "#{ENV['RBENV_ROOT']}/bin:#{ENV['PATH']}"
+    ENV['PATH'] = "#{ENV['RBENV_ROOT']}/shims:#{ENV['PATH']}"
   end
-  not_if { ENV["RBENV_ROOT"] == "/opt/rbenv-1.0.0" }
+  not_if { ENV['RBENV_ROOT'] == "/opt/rbenv-1.0.0" }
 end
 template "/etc/profile.d/rbenv.sh" do
   source "rbenv.rbenv.sh.erb"

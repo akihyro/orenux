@@ -19,9 +19,9 @@ end
 # 環境設定
 ruby_block "maven::env" do
   block do
-    ENV["M2_HOME"] = "/opt/maven-3.3.9"
-    ENV["PATH"] = "#{ENV['M2_HOME']}/bin:#{ENV['PATH']}"
+    ENV['M2_HOME'] = "/opt/maven-3.3.9"
+    ENV['PATH'] = "#{ENV['M2_HOME']}/bin:#{ENV['PATH']}"
   end
-  not_if { ENV["M2_HOME"] == "/opt/maven-3.3.9" }
+  not_if { ENV['M2_HOME'] == "/opt/maven-3.3.9" }
 end
 template "/etc/profile.d/maven.sh"

@@ -28,10 +28,10 @@ end
 # 環境設定
 ruby_block "git::env" do
   block do
-    ENV["GIT_HOME"] = "/opt/git-2.7.0"
-    ENV["PATH"] = "#{ENV['GIT_HOME']}/bin:#{ENV['PATH']}"
+    ENV['GIT_HOME'] = "/opt/git-2.7.0"
+    ENV['PATH'] = "#{ENV['GIT_HOME']}/bin:#{ENV['PATH']}"
   end
-  not_if { ENV["GIT_HOME"] == "/opt/git-2.7.0" }
+  not_if { ENV['GIT_HOME'] == "/opt/git-2.7.0" }
 end
 template "/etc/profile.d/git.sh"
 link "/etc/profile.d/git-prompt.sh" do

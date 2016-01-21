@@ -20,9 +20,9 @@ end
 # 環境設定
 ruby_block "java::env" do
   block do
-    ENV["JAVA_HOME"] = "/opt/jdk-1.8.0_72"
-    ENV["PATH"] = "#{ENV['JAVA_HOME']}/bin:#{ENV['PATH']}"
+    ENV['JAVA_HOME'] = "/opt/jdk-1.8.0_72"
+    ENV['PATH'] = "#{ENV['JAVA_HOME']}/bin:#{ENV['PATH']}"
   end
-  not_if { ENV["JAVA_HOME"] == "/opt/jdk-1.8.0_72" }
+  not_if { ENV['JAVA_HOME'] == "/opt/jdk-1.8.0_72" }
 end
 template "/etc/profile.d/java.sh"

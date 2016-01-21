@@ -5,7 +5,7 @@
 Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
 
   config.vm.hostname = "orenux"
-  config.vm.synced_folder ENV["HOME"], "/host/home"
+  config.vm.synced_folder ENV['HOME'], "/host/home"
 
   config.vm.provider :virtualbox do |virtualbox, config|
     config.vm.box = "opscode-centos-6.7"
@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
   config.vm.provider :docker do |docker, config|
     docker.build_dir = "docker"
     docker.build_args = []
-    docker.build_args << "--rm=false" if ENV["CIRCLECI"]
+    docker.build_args << "--rm=false" if ENV['CIRCLECI']
     docker.has_ssh = true
   end
 

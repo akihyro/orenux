@@ -23,10 +23,10 @@ end
 # 環境設定
 ruby_block "aws::cli::env" do
   block do
-    ENV["AWS_CLI_HOME"] = "/opt/aws-cli"
-    ENV["PATH"] = "#{ENV['AWS_CLI_HOME']}/bin:#{ENV['PATH']}"
+    ENV['AWS_CLI_HOME'] = "/opt/aws-cli"
+    ENV['PATH'] = "#{ENV['AWS_CLI_HOME']}/bin:#{ENV['PATH']}"
   end
-  not_if { ENV["AWS_CLI_HOME"] == "/opt/aws-cli" }
+  not_if { ENV['AWS_CLI_HOME'] == "/opt/aws-cli" }
 end
 template "/etc/profile.d/aws-cli.sh" do
   source "cli.aws-cli.sh.erb"

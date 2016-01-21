@@ -19,9 +19,9 @@ end
 # 環境設定
 ruby_block "nodejs::env" do
   block do
-    ENV["NODEJS_HOME"] = "/opt/nodejs-4.2.5"
-    ENV["PATH"] = "#{ENV['NODEJS_HOME']}/bin:#{ENV['PATH']}"
+    ENV['NODEJS_HOME'] = "/opt/nodejs-4.2.5"
+    ENV['PATH'] = "#{ENV['NODEJS_HOME']}/bin:#{ENV['PATH']}"
   end
-  not_if { ENV["NODEJS_HOME"] == "/opt/nodejs-4.2.5" }
+  not_if { ENV['NODEJS_HOME'] == "/opt/nodejs-4.2.5" }
 end
 template "/etc/profile.d/nodejs.sh"
