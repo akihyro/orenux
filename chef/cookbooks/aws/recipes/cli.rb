@@ -3,43 +3,34 @@
 #=======================================================================================================================
 
 # ダウンロード
-remote_file '/vagrant/.orenux-cache/aws/awscli-bundle.zip' do
-  source 'https://s3.amazonaws.com/aws-cli/awscli-bundle.zip'
+remote_file "#{Chef::Config['file_cache_path']}/awscli-bundle.zip" do
+  source "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 end
 
 # 展開
-bash 'aws::cli::extract' do
-  not_if <<-EOC
-    test -d /vagrant/.orenux-cache/aws/awscli-bundle
-  EOC
-  code <<-EOC
-    unzip '/vagrant/.orenux-cache/aws/awscli-bundle.zip' -d /vagrant/.orenux-cache/aws
-  EOC
+bash "aws::cli::extract" do
+  code "unzip #{Chef::Config['file_cache_path']}/awscli-bundle.zip -d /opt/aws-cli"
+  not_if "test -d /opt/aws-cli"
 end
 
 # インストール
-bash 'aws::cli::install' do
-  not_if <<-EOC
-    test -f /opt/aws/bin/aws
-  EOC
-  code <<-EOC
-    cd /vagrant/.orenux-cache/aws/awscli-bundle
-    ./install -i /opt/aws
-  EOC
+bash "aws::cli::install" do
+  cwd "/opt/aws-cli"
+  code "awscli-bundle/install -i ${PWD}"
+  not_if "test -d /opt/aws-cli/bin"
 end
 
-# 環境設定 (即時)
-ruby_block 'aws::cli::env' do
-  not_if do
-    ENV['AWS_HOME'] == '/opt/aws'
-  end
+# 環境設定
+ruby_block "aws::cli::env" do
   block do
-    ENV['AWS_HOME'] = '/opt/aws'
-    ENV['PATH'] = "#{ENV['AWS_HOME']}/bin:#{ENV['PATH']}"
+    ENV["AWS_CLI_HOME"] = "/opt/aws-cli"
+    ENV["PATH"] = "#{ENV['AWS_CLI_HOME']}/bin:#{ENV['PATH']}"
   end
+  not_if { ENV["AWS_CLI_HOME"] == "/opt/aws-cli" }
 end
-
-# 環境設定 (次回以降)
-template '/etc/profile.d/aws-cli.sh' do
-  source 'cli.aws-cli.sh.erb'
+template "/etc/profile.d/aws-cli.sh" do
+  source "cli.aws-cli.sh.erb"
+end
+template "/etc/bash_completion.d/aws-cli" do
+  source "cli.aws-cli-completion.sh.erb"
 end
