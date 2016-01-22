@@ -3,6 +3,7 @@
   "run_list": [
     "recipe[system::locale]",
     "recipe[system::selinux]",
+    "recipe[system::umask]",
     "recipe[system::history]",
     "recipe[yum::plugin-fastestmirror]",
     "recipe[yum::update]",
