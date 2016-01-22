@@ -5,12 +5,12 @@
 # インストール
 yum_package "samba"
 
-# サービス起動
-service "smb" do
-  action [:enable, :start]
-end
-
 # 設定
 template "/etc/samba/smb.conf" do
   notifies :restart, "service[smb]"
+end
+
+# サービス起動
+service "smb" do
+  action [:enable, :start]
 end
