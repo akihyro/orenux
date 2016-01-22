@@ -6,6 +6,6 @@
 set -eux
 set -o pipefail
 
-trap "vagrant halt" EXIT
+trap "vagrant destroy -f ||:" EXIT
 vagrant up
 vagrant provision
