@@ -1,0 +1,31 @@
+{
+  "name": "orenux",
+  "run_list": [
+    "recipe[system::locale]",
+    "recipe[system::selinux]",
+    "recipe[system::history]",
+    "recipe[yum::plugin-fastestmirror]",
+    "recipe[yum::update]",
+    "recipe[yum::repo-epel]",
+    "recipe[yum::repo-rpmforge]",
+    "recipe[yum::packages]",
+    "recipe[git]",
+    "recipe[aws::cli]",
+    "recipe[java]",
+    "recipe[jq]",
+    "recipe[maven]",
+    "recipe[nodejs]",
+    "recipe[peco]",
+    "recipe[ruby::rbenv]",
+    "recipe[ruby::ruby]",
+    "recipe[samba]",
+    "recipe[vagrant]",
+    "recipe[akihyro]",
+    "recipe[akihyro::sudo]",
+    "recipe[akihyro::ssh]",
+    "recipe[akihyro::samba]",
+    "recipe[akihyro::vagrant]",
+    "recipe[akihyro::dotfiles]",
+    "recipe[akihyro::repos]"
+  ]
+}

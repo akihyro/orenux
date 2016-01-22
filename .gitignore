@@ -1,5 +1,3 @@
-/.orenux-cache/*
-!/.orenux-cache/.gitkeep
 /.vagrant/
-/nodes/*
-!/nodes/.gitkeep
+/chef/nodes/*
+!/chef/nodes/.gitkeep
