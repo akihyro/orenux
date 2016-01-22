@@ -3,7 +3,8 @@
 #=======================================================================================================================
 
 # ダウンロード
-remote_file "#{Chef::Config[:file_cache_path]}/apache-maven-3.3.9-bin.tar.gz" do
+resource_file_path = "#{Chef::Config[:file_cache_path]}/apache-maven-3.3.9-bin.tar.gz"
+remote_file resource_file_path do
   source "http://ftp.jaist.ac.jp/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
 end
 
@@ -11,7 +12,7 @@ end
 bash "maven::extract" do
   not_if "test -d /opt/maven-3.3.9"
   code <<-EOC
-    tar xfz #{Chef::Config[:file_cache_path]}/apache-maven-3.3.9-bin.tar.gz -C /opt
+    tar -xz --no-same-owner --no-same-permissions -f #{resource_file_path} -C /opt
     mv /opt/apache-maven-3.3.9 /opt/maven-3.3.9
   EOC
 end

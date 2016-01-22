@@ -3,13 +3,14 @@
 #=======================================================================================================================
 
 # ダウンロード
-remote_file "#{Chef::Config[:file_cache_path]}/awscli-bundle.zip" do
+resource_file_path = "#{Chef::Config[:file_cache_path]}/awscli-bundle.zip"
+remote_file resource_file_path do
   source "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip"
 end
 
 # 展開
 bash "aws::cli::extract" do
-  code "unzip #{Chef::Config[:file_cache_path]}/awscli-bundle.zip -d /opt/aws-cli"
+  code "unzip #{resource_file_path} -d /opt/aws-cli"
   not_if "test -d /opt/aws-cli"
 end
 

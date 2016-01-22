@@ -3,13 +3,14 @@
 #=======================================================================================================================
 
 # ダウンロード
-remote_file "#{Chef::Config[:file_cache_path]}/git-2.7.0.tar.gz" do
+resource_file_path = "#{Chef::Config[:file_cache_path]}/git-2.7.0.tar.gz"
+remote_file resource_file_path do
   source "https://github.com/git/git/archive/v2.7.0.tar.gz"
 end
 
 # 展開
 bash "git::extract" do
-  code "tar xfz #{Chef::Config[:file_cache_path]}/git-2.7.0.tar.gz -C /opt"
+  code "tar -xz --no-same-owner --no-same-permissions -f #{resource_file_path} -C /opt"
   not_if "test -d /opt/git-2.7.0"
 end
 

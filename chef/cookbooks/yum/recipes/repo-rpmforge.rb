@@ -3,13 +3,14 @@
 #=======================================================================================================================
 
 # ダウンロード
-remote_file "#{Chef::Config[:file_cache_path]}/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm" do
+resource_file_path = "#{Chef::Config[:file_cache_path]}/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm"
+remote_file resource_file_path do
   source "http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm"
 end
 
 # インストール
 rpm_package "rpmforge-release" do
-  source "#{Chef::Config[:file_cache_path]}/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm"
+  source resource_file_path
 end
 
 # 無効化
