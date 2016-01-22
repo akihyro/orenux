@@ -1,19 +1,11 @@
+#!/bin/bash
 #=======================================================================================================================
-# CircleCI
+# テスト
 #=======================================================================================================================
 
-machine:
-  timezone: "Asia/Tokyo"
-  services:
-    - "docker"
+set -eux
+set -o pipefail
 
-dependencies:
-  override:
-    - "ci/install-vagrant.sh"
-  cache_directories:
-    - "~/.vagrant.d"
-
-test:
-  override:
-    - "ci/test.sh":
-        timeout: 1800
+trap "vagrant halt" EXIT
+vagrant up
+vagrant provision
