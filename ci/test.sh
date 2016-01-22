@@ -7,5 +7,5 @@ set -eux
 set -o pipefail
 
 trap "vagrant destroy -f ||:" EXIT
-vagrant up
+vagrant up --provider docker
 vagrant provision
