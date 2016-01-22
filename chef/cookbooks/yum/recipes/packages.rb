@@ -9,6 +9,8 @@ yum_package "bash-completion" do
 end
 yum_package "bind-utils"
 yum_package "curl"
+yum_package "dbus"
+yum_package "dbus-devel"
 yum_package "dstat"
 yum_package "expat"
 yum_package "expat-devel"
