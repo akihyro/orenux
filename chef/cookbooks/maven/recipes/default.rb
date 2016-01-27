@@ -5,7 +5,7 @@
 # ダウンロード
 resource_file_path = "#{Chef::Config[:file_cache_path]}/apache-maven-3.3.9-bin.tar.gz"
 remote_file resource_file_path do
-  source "http://ftp.jaist.ac.jp/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
+  source "http://ftp.riken.jp/net/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
 end
 
 # 展開
