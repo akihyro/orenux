@@ -20,7 +20,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
 
   config.vm.provider :docker do |docker, config|
     docker.build_dir = "docker"
-    docker.build_args = []
     docker.build_args << "--rm=false" if ENV['CIRCLECI']
     docker.has_ssh = true
   end
@@ -29,9 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
     chef.cookbooks_path = "chef/cookbooks"
     chef.roles_path = "chef/roles"
     chef.nodes_path = "chef/nodes"
-    chef.run_list = [
-      "role[orenux]",
-    ]
+    chef.run_list << "role[orenux]"
   end
 
 end
