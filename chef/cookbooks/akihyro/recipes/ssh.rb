@@ -18,15 +18,10 @@ template "/home/akihyro/.ssh/config" do
 end
 
 # GitHub アクセスキー
-file "/home/akihyro/.ssh/github" do
+file "/home/akihyro/.ssh/github.com" do
   owner "akihyro"
   group "akihyro"
   mode "0600"
   sensitive true
-  content IO.read(
-    [
-      "/host/home/.ssh/github",
-      "/host/home/.ssh/id_circleci_github",
-    ].find { |path| File.exist?(path) }
-  )
+  content IO.read("/host/home/.ssh/github.com")
 end

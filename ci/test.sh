@@ -6,6 +6,8 @@
 set -eux
 set -o pipefail
 
+cp -p ~/.ssh/id_circleci_github ~/.ssh/github.com
+
 trap "vagrant halt ci" EXIT
 vagrant up ci
 vagrant provision ci
