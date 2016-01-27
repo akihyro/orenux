@@ -6,6 +6,6 @@
 set -eux
 set -o pipefail
 
-trap "vagrant destroy -f ||:" EXIT
-vagrant up --provider docker
-vagrant provision
+trap "vagrant halt ci" EXIT
+vagrant up ci
+vagrant provision ci
