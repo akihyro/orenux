@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
     chef.roles_path = "chef/roles"
     chef.nodes_path = "chef/nodes"
     chef.run_list = [
-      "role[orenux]"
+      "role[orenux]",
     ]
   end
 
