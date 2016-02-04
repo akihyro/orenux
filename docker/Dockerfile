@@ -11,14 +11,13 @@ RUN yum install -y openssh-clients
 RUN yum install -y sudo
 
 RUN echo root:vagrant | chpasswd
+RUN useradd vagrant
+RUN echo vagrant:vagrant | chpasswd
 
 RUN sed -i -e "s/^Defaults\s*requiretty$/#&/" /etc/sudoers
 COPY etc/sudoers.d/vagrant /etc/sudoers.d/
 
-RUN sed -i -e "s/^UsePAM\s*yes$/#&/" /etc/ssh/sshd_config
-
-RUN useradd vagrant
-RUN echo vagrant:vagrant | chpasswd
+RUN sed -i -e "s/^session\s*required\s*pam_loginuid.so$/#&/" /etc/pam.d/sshd
 
 RUN mkdir -p /home/vagrant/.ssh
 RUN chown vagrant:vagrant /home/vagrant/.ssh
