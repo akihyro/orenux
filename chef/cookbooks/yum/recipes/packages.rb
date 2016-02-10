@@ -33,6 +33,8 @@ yum_package "libxslt-devel"
 yum_package "lv" do
   options "--enablerepo=rpmforge"
 end
+yum_package "numactl"
+yum_package "numactl-devel"
 yum_package "openssh"
 yum_package "openssh-clients"
 yum_package "openssh-server"
