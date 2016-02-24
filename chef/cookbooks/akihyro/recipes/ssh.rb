@@ -18,10 +18,9 @@ template "/home/akihyro/.ssh/config" do
 end
 
 # GitHub アクセスキー
-file "/home/akihyro/.ssh/github.com" do
+remote_file "/home/akihyro/.ssh/github.com" do
   owner "akihyro"
   group "akihyro"
   mode "0600"
-  sensitive true
-  content File.read("/host/home/.ssh/github.com")
+  source "file:///host/home/.ssh/github.com"
 end
