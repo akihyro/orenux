@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
   config.vm.define :ci, autostart: false do |ci|
 
     ci.vm.provider :docker do |docker|
-      docker.build_dir = "docker"
+      docker.build_dir = "ci/docker"
       docker.build_args = ["--rm=false"]
       docker.has_ssh = true
     end
