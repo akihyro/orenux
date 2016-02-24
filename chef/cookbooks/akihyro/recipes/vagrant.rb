@@ -6,7 +6,6 @@
 [
   "vagrant-aws",
   "vagrant-ami",
-  "vagrant-omnibus",
 ].each do |plugin|
   bash "akihyro::vagrant::#{plugin}" do
     user "akihyro"
