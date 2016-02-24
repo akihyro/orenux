@@ -22,6 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
     end
 
     orenux.vm.provision :chef_zero do |chef|
+      chef.channel = :stable
       chef.version = "12.7.2"
       chef.cookbooks_path = "chef/cookbooks"
       chef.roles_path = "chef/roles"
@@ -40,6 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION = 2) do |config|
     end
 
     ci.vm.provision :chef_zero do |chef|
+      chef.channel = :stable
       chef.version = "12.7.2"
       chef.cookbooks_path = "chef/cookbooks"
       chef.roles_path = "chef/roles"
