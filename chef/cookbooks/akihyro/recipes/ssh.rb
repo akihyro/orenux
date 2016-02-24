@@ -23,5 +23,5 @@ file "/home/akihyro/.ssh/github.com" do
   group "akihyro"
   mode "0600"
   sensitive true
-  content IO.read("/host/home/.ssh/github.com")
+  content File.read("/host/home/.ssh/github.com")
 end
