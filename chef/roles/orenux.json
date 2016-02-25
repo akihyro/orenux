@@ -25,7 +25,6 @@
     "recipe[akihyro::sudo]",
     "recipe[akihyro::ssh]",
     "recipe[akihyro::samba]",
-    "recipe[akihyro::vagrant]",
     "recipe[akihyro::dotfiles]",
     "recipe[akihyro::repos]"
   ]
