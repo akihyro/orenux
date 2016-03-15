@@ -10,11 +10,11 @@ end
 
 # 展開
 bash "maven::extract" do
-  not_if "test -d /opt/maven-3.3.9"
   code <<-EOC
     tar -xz --no-same-owner --no-same-permissions -f #{resource_file_path} -C /opt
     mv /opt/apache-maven-3.3.9 /opt/maven-3.3.9
   EOC
+  not_if "test -d /opt/maven-3.3.9"
 end
 
 # 環境設定
