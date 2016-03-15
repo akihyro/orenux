@@ -9,4 +9,4 @@ remote_file resource_file_path do
 end
 
 # インストール
-rpm_package resource_file_path
+yum_package resource_file_path

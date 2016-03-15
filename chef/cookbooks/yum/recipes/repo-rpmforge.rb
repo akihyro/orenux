@@ -9,9 +9,7 @@ remote_file resource_file_path do
 end
 
 # インストール
-rpm_package "rpmforge-release" do
-  source resource_file_path
-end
+yum_package resource_file_path
 
 # 無効化
 # ※利用時は "--enablerepo=rpmforge" オプションを都度付与して有効化する。
