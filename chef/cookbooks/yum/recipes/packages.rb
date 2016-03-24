@@ -44,6 +44,9 @@ yum_package "patch"
 yum_package "passwd"
 yum_package "perl"
 yum_package "perl-ExtUtils-MakeMaker"
+yum_package "pv" do
+  options "--enablerepo=rpmforge"
+end
 yum_package "readline"
 yum_package "readline-devel"
 yum_package "rsync"
